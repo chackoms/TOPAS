@@ -8,7 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-csv_file_object=csv.reader(open('/home/michael/Documents/Topas_Work/PhaseSpaceAtTinExit.csv',newline=''),delimiter=' ')
+csv_file_object=csv.reader(open('/home/michael/Documents/Topas_Work/TOPAS/Spectra_and_Attenuation_Test/LuciteExit.csv',newline=''),delimiter=' ')
 
 data=[]
 
@@ -27,7 +27,7 @@ for x in range(0,data.shape[0]):
     
 test=test[1:len(test)+1]    
     
-test=test[np.where(test[:,5]>0.1199)]
+test=test[np.where(test[:,5]>0.059)]
 
 print(test.shape[0]/100000)
 

@@ -29,7 +29,6 @@ i:Ge/TestCylinder/ZBins    = 3000 # 1mm bins
 
 s:Sc/EnergyCylinder/Quantity                  = "EnergyDeposit"
 s:Sc/EnergyCylinder/Component                 = "TestCylinder"
-#i:Sc/EnergyCylinder/ZBins                     = 300
 s:Sc/EnergyCylinder/OutputType                = "csv"
 b:Sc/EnergyCylinder/OutputToConsole           = "TRUE"
 s:Sc/EnergyCylinder/IfOutputFileAlreadyExists = "Overwrite"

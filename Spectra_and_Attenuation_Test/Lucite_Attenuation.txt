@@ -1,7 +1,6 @@
 
 i:Ts/NumberOfThreads = 0
-#s:So/Example/BeamEnergySpectrumType       = "Continuous"
-#includeFile = /home/michael/Documents/Topas_Work/EnergySpectrumValues.txt
+
 
 
 
@@ -10,15 +9,6 @@ d:Ge/World/HLX       = 1.0 m
 d:Ge/World/HLY       = 1.0 m
 d:Ge/World/HLZ       = 1.0 m
 b:Ge/World/Invisible = "True"
-
-sv:Ma/Tin/Components=1 "Tin"
-uv:Ma/Tin/Fractions=1 1.0
-d:Ma/Tin/Density=7.31 g/cm3
-s:Ma/Tin/DefaultColor="skyblue"
-i:Ma/Tin/AtomicNumber= 50
-d:Ma/Tin/MeanExcitationEnergy=488 eV
-d:Ma/Tin/AtomicMass=118.71 g/mole
-
 
 s:Ge/Phantom/Type     = "TsBox"
 s:Ge/Phantom/Parent   = "World"
@@ -32,29 +22,38 @@ i:Ge/Phantom/XBins    = 1
 i:Ge/Phantom/YBins    = 1
 i:Ge/Phantom/ZBins    = 1
 
-s:Ge/Tin/Type     = "TsBox"
-s:Ge/Tin/Parent   = "World"
-s:Ge/Tin/Material = "Lucite"
-d:Ge/Tin/HLX      = 10.0 cm
-d:Ge/Tin/HLY      = 10.0 cm
-d:Ge/Tin/HLZ      = 0.05 cm
-d:Ge/Tin/TransZ   = -0.6 cm
-s:Ge/Tin/Color    = "blue"
-i:Ge/Tin/XBins    = 1
-i:Ge/Tin/YBins    = 1
-i:Ge/Tin/ZBins    = 1
+sv:Ma/User_Lucite/Components=3 "Carbon" "Oxygen" "Hydrogen"
+uv:Ma/User_Lucite/Fractions=1 1.0
+d:Ma/User_Lucite/Density=7.31 g/cm3
+s:Ma/User_Lucite/DefaultColor="skyblue"
+i:Ma/User_Lucite/AtomicNumber= 50
+d:Ma/User_Lucite/MeanExcitationEnergy=488 eV
+d:Ma/User_Lucite/AtomicMass=118.71 g/mole
+
+s:Ge/Lucite/Type     = "TsBox"
+s:Ge/Lucite/Parent   = "World"
+s:Ge/Lucite/Material = "Lucite"
+d:Ge/Lucite/HLX      = 10.0 cm
+d:Ge/Lucite/HLY      = 10.0 cm
+d:Ge/Lucite/HLZ      = 0.5 cm
+d:Ge/Lucite/TransZ   = -1. cm
+s:Ge/Lucite/Color    = "blue"
+i:Ge/Lucite/XBins    = 1
+i:Ge/Lucite/YBins    = 1
+i:Ge/Lucite/ZBins    = 1
 
 
 s:Sc/PhaseSpaceAtTinExit/Quantity = "PhaseSpace"
-s:Sc/PhaseSpaceAtTinExit/Surface="Tin/ZMinusSurface"
+s:Sc/PhaseSpaceAtTinExit/Surface="Lucite/ZMinusSurface"
 s:Sc/PhaseSpaceAtTinExit/OutputType="ASCII"
 i:Sc/PhaseSpaceAtTinExit/OutputBufferSize            = 1000
 sv:Sc/PhaseSpaceAtTinExit/OnlyIncludeParticlesNamed = 1 "gamma"
 s:Sc/PhaseSpaceAtTinExit/OnlyIncludeParticlesGoing = "Out"
+s:Sc/PhaseSpaceAtTinExit/OutputFile = "/home/michael/Documents/Topas_Work/TOPAS/Spectra_and_Attenuation_Test/LuciteExit"
 s:Sc/PhaseSpaceAtTinExit/IfOutputFileAlreadyExists="Overwrite"
 
 s:Sc/PhaseSpaceAtTinEntrance/Quantity = "PhaseSpace"
-s:Sc/PhaseSpaceAtTinEntrance/Surface="Tin/ZPlusSurface"
+s:Sc/PhaseSpaceAtTinEntrance/Surface="Lucite/ZPlusSurface"
 s:Sc/PhaseSpaceAtTinEntrance/OutputType="ASCII"
 i:Sc/PhaseSpaceAtTinEntrance/OutputBufferSize            = 1000
 sv:Sc/PhaseSpaceAtTinEntrance/OnlyIncludeParticlesNamed = 1 "gamma"
@@ -62,7 +61,7 @@ s:Sc/PhseSpaceAtTinEntrance/OnlyIncludeParticlesGoing = "In"
 s:Sc/PhaseSpaceAtTinEntrance/IfOutputFileAlreadyExists="Overwrite"
 
 s:Sc/PhaseSpaceAtVacuum/Quantity = "PhaseSpace"
-s:Sc/PhaseSpaceAtVacuum/Surface="Phantom/ZPlusSurface"
+s:Sc/PhaseSpaceAtVacuum/Surface="Lucite/ZPlusSurface"
 s:Sc/PhaseSpaceAtVacuum/OutputType="ASCII"
 i:Sc/PhaseSpaceAtVacuum/OutputBufferSize            = 1000
 sv:Sc/PhaseSpaceAtVacuum/OnlyIncludeParticlesNamed = 1 "gamma"
@@ -89,8 +88,8 @@ b:Gr/MyOGL/HiddenLineRemovalForTrajectories = "True"
 s:So/Example/Type                     = "Beam"
 s:So/Example/Component                = "BeamPosition"
 s:So/Example/BeamParticle             = "gamma"
-d:So/Example/BeamEnergy = 120 keV
-u:So/Example/BeamEnergySpread         = 0.001
+d:So/Example/BeamEnergy = 60 keV
+u:So/Example/BeamEnergySpread         = 0.00001
 s:So/Example/BeamPositionDistribution = "None"
 s:So/Example/BeamPositionCutoffShape  = "None"
 #d:So/Example/BeamPositionCutoffX      = 1. cm
