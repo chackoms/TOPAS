@@ -92,7 +92,7 @@ d:So/Example/BeamAngularCutoffY       = 0.477 deg
 # tan inverse of 0.5/60 = 0.477
 
 
-i:So/Example/NumberOfHistoriesInRun   = 10000
+i:So/Example/NumberOfHistoriesInRun   = 100000
 
 
 
