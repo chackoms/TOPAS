@@ -1,0 +1,121 @@
+
+i:Ts/NumberOfThreads = 0
+s:So/Example/BeamEnergySpectrumType       = "Continuous"
+includeFile = /home/michael/Documents/Topas_Work/EnergySpectrumValues.txt
+
+
+
+s:Ge/World/Material  = "Vacuum"
+d:Ge/World/HLX       = 1.0 m
+d:Ge/World/HLY       = 1.0 m
+d:Ge/World/HLZ       = 1.0 m
+b:Ge/World/Invisible = "True"
+
+sv:Ma/Tin/Components=1 "Tin"
+uv:Ma/Tin/Fractions=1 1.0
+d:Ma/Tin/Density=7.287 g/cm3
+s:Ma/Tin/DefaultColor="skyblue"
+i:Ma/Tin/AtomicNumber= 50
+d:Ma/Tin/MeanExcitationEnergy=488 eV
+d:Ma/Tin/AtomicMass=118.71  g/mole
+
+
+s:Ge/Phantom/Type     = "TsBox"
+s:Ge/Phantom/Parent   = "World"
+s:Ge/Phantom/Material = "Vacuum"
+d:Ge/Phantom/HLX      = 10.0 cm
+d:Ge/Phantom/HLY      = 10.0 cm
+d:Ge/Phantom/HLZ      = 0.5 cm
+d:Ge/Phantom/TransZ   = 0. cm
+s:Ge/Phantom/Color    = "white"
+i:Ge/Phantom/XBins    = 1
+i:Ge/Phantom/YBins    = 1
+i:Ge/Phantom/ZBins    = 1
+
+s:Ge/Water/Type     = "TsBox"
+s:Ge/Water/Parent   = "World"
+s:Ge/Water/Material = "G4_WATER"
+d:Ge/Water/HLX      = 10.0 cm
+d:Ge/Water/HLY      = 10.0 cm
+d:Ge/Water/HLZ      = 0.5 cm
+d:Ge/Water/TransZ   = -1. cm
+s:Ge/Water/Color    = "blue"
+i:Ge/Water/XBins    = 1
+i:Ge/Water/YBins    = 1
+i:Ge/Water/ZBins    = 1
+
+
+s:Sc/PhaseSpaceAtWaterExit/Quantity = "PhaseSpace"
+s:Sc/PhaseSpaceAtWaterExit/Surface="Water/ZMinusSurface"
+s:Sc/PhaseSpaceAtWaterExit/OutputType="ASCII"
+i:Sc/PhaseSpaceAtWaterExit/OutputBufferSize            = 1000
+sv:Sc/PhaseSpaceAtWaterExit/OnlyIncludeParticlesNamed = 1 "gamma"
+s:Sc/PhaseSpaceAtWaterExit/OnlyIncludeParticlesGoing = "Out"
+s:Sc/PhaseSpaceAtWaterExit/IfOutputFileAlreadyExists="Overwrite"
+
+s:Sc/PhaseSpaceAtWaterEntrance/Quantity = "PhaseSpace"
+s:Sc/PhaseSpaceAtWaterEntrance/Surface="Water/ZPlusSurface"
+s:Sc/PhaseSpaceAtWaterEntrance/OutputType="ASCII"
+i:Sc/PhaseSpaceAtWaterEntrance/OutputBufferSize            = 1000
+sv:Sc/PhaseSpaceAtWaterEntrance/OnlyIncludeParticlesNamed = 1 "gamma"
+s:Sc/PhseSpaceAtWaterEntrance/OnlyIncludeParticlesGoing = "In"
+s:Sc/PhaseSpaceAtWaterEntrance/IfOutputFileAlreadyExists="Overwrite"
+
+s:Sc/PhaseSpaceAtVacuum/Quantity = "PhaseSpace"
+s:Sc/PhaseSpaceAtVacuum/Surface="Phantom/ZPlusSurface"
+s:Sc/PhaseSpaceAtVacuum/OutputType="ASCII"
+i:Sc/PhaseSpaceAtVacuum/OutputBufferSize            = 1000
+sv:Sc/PhaseSpaceAtVacuum/OnlyIncludeParticlesNamed = 1 "gamma"
+s:Sc/PhaseSpaceAtVacuum/OnlyIncludeParticlesGoing = "In"
+s:Sc/PhaseSpaceAtVacuum/IfOutputFileAlreadyExists="Overwrite"
+
+
+
+s:Gr/MyOGL/Type        = "OpenGL"
+i:Gr/MyOGL/WindowSizeX = 600
+i:Gr/MyOGL/WindowSizeY = 600
+i:Gr/MyOGL/WindowPosX  = 0
+i:Gr/MyOGL/WindowPosY  = 0
+i:Gr/MyOGL/WindowPosZ  = 0
+#d:Gr/MyOGL/Theta       = 30. deg
+#d:Gr/MyOGL/Phi         = 30. deg
+u:Gr/MyOGL/Zoom        = 1.
+s:Gr/MyOGL/ColorBy     = "particletype"
+b:Gr/MyOGL/HiddenLineRemovalForTrajectories = "True"
+
+
+
+
+s:So/Example/Type                     = "Beam"
+s:So/Example/Component                = "BeamPosition"
+s:So/Example/BeamParticle             = "gamma"
+#d:So/Example/BeamEnergy = 120 keV
+#u:So/Example/BeamEnergySpread         = 0.001
+s:So/Example/BeamPositionDistribution = "None"
+s:So/Example/BeamPositionCutoffShape  = "None"
+#d:So/Example/BeamPositionCutoffX      = 1. cm
+#d:So/Example/BeamPositionCutoffY      = 1. cm
+#d:So/Example/BeamPositionSpreadX      = 0.05 cm
+#d:So/Example/BeamPositionSpreadY      = 0.05 cm
+
+s:Ge/BeamPosition/Parent="World"
+#s:Ge/BeamPosition/Type="Group"
+d:Ge/BeamPosition/TransX=0. cm
+d:Ge/BeamPosition/TransY=0. cm
+d:Ge/BeamPosition/TransZ= 4. cm
+
+
+sv:Ph/Default/Modules = 1 "g4em-standard_opt0"
+
+
+s:So/Example/BeamAngularDistribution  = "Gaussian"
+d:So/Example/BeamAngularCutoffX       = 179. deg
+d:So/Example/BeamAngularCutoffY       = 179. deg
+d:So/Example/BeamAngularSpreadX       = 0.0032 rad
+d:So/Example/BeamAngularSpreadY       = 0.0032 rad
+i:So/Example/NumberOfHistoriesInRun   = 100000
+
+
+
+i:Ts/ShowHistoryCountAtInterval = 1000
+b:Ts/PauseBeforeQuit = "True"
