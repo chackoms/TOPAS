@@ -1,6 +1,6 @@
 # TOPAS Version: 3.2.p2
 # Parameter File: /Users/michaelchacko/Documents/Topas_Files/TOPAS/TG-195/Case4_Test1.txt
-# Results for scorer EnergyCylinder
-# Scored in component: TestCylinder
+# Results for scorer EnergyCylinderCenter
+# Scored in component: CenterCylinder
 # EnergyDeposit ( MeV ) : Sum   
-3422.91552734375
+1.097360849380493

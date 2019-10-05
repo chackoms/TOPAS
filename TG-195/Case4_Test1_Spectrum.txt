@@ -1,8 +1,9 @@
 
 i:Ts/NumberOfThreads = 0
+s:So/Example/BeamEnergySpectrumType       = "Continuous"
+includeFile = /Users/michaelchacko/Documents/Topas_Files/TOPAS/TG-195/EnergySpectrumValues.txt
 
-
-s:Ge/World/Material  = "Air"
+s:Ge/World/Material  = "G4_AIR"
 d:Ge/World/HLX       = 2.0 m
 d:Ge/World/HLY       = 2.0 m
 d:Ge/World/HLZ       = 2.0 m
@@ -50,7 +51,6 @@ s:Sc/EnergyCylinderCenter/Component                 = "CenterCylinder"
 s:Sc/EnergyCylinderCenter/OutputType                = "csv"
 b:Sc/EnergyCylinderCenter/OutputToConsole           = "TRUE"
 s:Sc/EnergyCylinderCenter/IfOutputFileAlreadyExists = "Overwrite"
-sv:Sc/EnergyCylinderCenter/Report = 2 "Mean" "Count_In_Bin"
 #s:Sc/EnergyCylinderCenter/OutputFile = "/home/michael/Documents/Topas_Work/TOPAS/TG-195/CenterCylinder"
 
 s:Sc/FluenceCylinderCenter/Quantity                  = "Fluence"
@@ -59,17 +59,13 @@ s:Sc/FluenceCylinderCenter/OutputType                = "csv"
 b:Sc/FluenceCylinderCenter/OutputToConsole           = "TRUE"
 s:Sc/FluenceCylinderCenter/IfOutputFileAlreadyExists = "Overwrite"
 
-s:Sc/DoseCylinderCenter/Quantity                  = "DoseToMedium"
-s:Sc/DoseCylinderCenter/Component                 = "CenterCylinder"
-s:Sc/DoseCylinderCenter/OutputType                = "csv"
-b:Sc/DoseCylinderCenter/OutputToConsole           = "TRUE"
-sv:Sc/DoseCylinderCenter/Report = 1 "Mean"
-s:Sc/DoseCylinderCenter/IfOutputFileAlreadyExists = "Overwrite"
-
 
 s:Gr/MyOGL/Type        = "OpenGL"
-i:Gr/MyOGL/WindowSizeX = 900
-i:Gr/MyOGL/WindowSizeY = 900
+i:Gr/MyOGL/WindowSizeX = 600
+i:Gr/MyOGL/WindowSizeY = 600
+i:Gr/MyOGL/WindowPosX  = 0
+i:Gr/MyOGL/WindowPosY  = 0
+i:Gr/MyOGL/WindowPosZ  = 15
 d:Gr/MyOGL/Theta       = 90. deg
 d:Gr/MyOGL/Phi         = 90. deg
 u:Gr/MyOGL/Zoom        = 3.0
@@ -82,8 +78,6 @@ b:Gr/MyOGL/HiddenLineRemovalForTrajectories = "True"
 s:So/Example/Type                     = "Beam"
 s:So/Example/Component                = "BeamPosition"
 s:So/Example/BeamParticle             = "gamma"
-d:So/Example/BeamEnergy = 56.4 keV
-u:So/Example/BeamEnergySpread         = 0.00000000001
 s:So/Example/BeamPositionDistribution = "None"
 s:So/Example/BeamPositionCutoffShape  = "None"
 s:So/Example/BeamShape="Point"
@@ -100,15 +94,16 @@ d:Ge/BeamPosition/RotX=90. deg
 
 sv:Ph/Default/Modules = 1 "g4em-standard_opt4"
 
+
 s:So/Example/BeamAngularDistribution  = "Flat"
 d:So/Example/BeamAngularCutoffX       = 14.9314 deg # cutoff is in half length
 # tan inverse of 16/60 = 14.9314
-d:So/Example/BeamAngularCutoffY       = 3.81407 deg
+d:So/Example/BeamAngularCutoffY       = 0.477 deg
 # tan inverse of 0.5/60 = 0.477 (for 10mm beam)
 # tan inverse of 4.0/60 = 3.81407 (for 80mm beam)
 
 
-i:So/Example/NumberOfHistoriesInRun   = 10000
+i:So/Example/NumberOfHistoriesInRun   = 100000 
 
 
 
