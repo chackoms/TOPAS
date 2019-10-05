@@ -25,7 +25,17 @@ d:Ge/TestCylinder/RotZ     = 0. deg
 s:Ge/TestCylinder/Color    = "blue"
 i:Ge/TestCylinder/RBins    = 1
 i:Ge/TestCylinder/PhiBins  = 1
-i:Ge/TestCylinder/ZBins    = 3000 # 1mm bins
+i:Ge/TestCylinder/ZBins    = 300 # 1cm bins
+
+s:Ge/CenterCylinder/Parent = "TestCylinder"
+s:Ge/CenterCylinder/Type="TsCylinder"
+d:Ge/CenterCylinder/RMax=0.5 cm
+d:Ge/CenterCylinder/HL = 5. cm
+d:Ge/CenterCylinder/SPhi=0. deg
+d:Ge/CenterCylinder/DPhi=360. deg
+i:Ge/CenterCylinder/ZBins=1
+
+
 
 s:Sc/EnergyCylinder/Quantity                  = "EnergyDeposit"
 s:Sc/EnergyCylinder/Component                 = "TestCylinder"
@@ -33,6 +43,13 @@ s:Sc/EnergyCylinder/OutputType                = "csv"
 b:Sc/EnergyCylinder/OutputToConsole           = "TRUE"
 s:Sc/EnergyCylinder/IfOutputFileAlreadyExists = "Overwrite"
 s:Sc/EnergyCylinder/OutputFile = "/home/michael/Documents/Topas_Work/TOPAS/TG-195/EnergyCylinder"
+
+s:Sc/EnergyCylinderCenter/Quantity                  = "EnergyDeposit"
+s:Sc/EnergyCylinderCenter/Component                 = "CenterCylinder"
+s:Sc/EnergyCylinderCenter/OutputType                = "csv"
+b:Sc/EnergyCylinderCenter/OutputToConsole           = "TRUE"
+s:Sc/EnergyCylinderCenter/IfOutputFileAlreadyExists = "Overwrite"
+s:Sc/EnergyCylinderCenter/OutputFile = "/home/michael/Documents/Topas_Work/TOPAS/TG-195/CenterCylinder"
 
 
 s:Sc/DoseCylinder/Quantity                  = "DoseToMedium"
@@ -50,9 +67,9 @@ i:Gr/MyOGL/WindowSizeY = 600
 i:Gr/MyOGL/WindowPosX  = 0
 i:Gr/MyOGL/WindowPosY  = 0
 i:Gr/MyOGL/WindowPosZ  = 0
-d:Gr/MyOGL/Theta       = 0. deg
-d:Gr/MyOGL/Phi         = 0. deg
-u:Gr/MyOGL/Zoom        = 2.0
+d:Gr/MyOGL/Theta       = 90. deg
+d:Gr/MyOGL/Phi         = 90. deg
+u:Gr/MyOGL/Zoom        = 1.0
 s:Gr/MyOGL/ColorBy     = "particletype"
 b:Gr/MyOGL/HiddenLineRemovalForTrajectories = "True"
 
@@ -63,7 +80,7 @@ s:So/Example/Type                     = "Beam"
 s:So/Example/Component                = "BeamPosition"
 s:So/Example/BeamParticle             = "gamma"
 d:So/Example/BeamEnergy = 56.4 keV
-u:So/Example/BeamEnergySpread         = 0.00001
+u:So/Example/BeamEnergySpread         = 0.00000000001
 s:So/Example/BeamPositionDistribution = "None"
 s:So/Example/BeamPositionCutoffShape  = "None"
 s:So/Example/BeamShape="Point"
@@ -78,8 +95,12 @@ d:Ge/BeamPosition/RotY=270. deg
 d:Ge/BeamPosition/RotX=90. deg
 
 
-sv:Ph/Default/Modules = 1 "g4em-standard_opt0"
-
+s:Ph/ListName = "MyList"
+s:Ph/MyList/Type = "Geant4_Modular"
+sv:Ph/MyList/Modules = 8 "g4em-standard_opt4" "g4h-phy_QGSP_BERT_HP" "g4decay" "g4ion-binarycascade" "g4h-elastic_HP" "g4h-inelastic_QBBC" "g4stopping" "g4em-extra"
+b:Ph/MyList/Fluorescence = "True"
+b:Ph/MyList/Auger = "True"
+b:Ph/MyList/PIXE = "True"
 
 s:So/Example/BeamAngularDistribution  = "Flat"
 d:So/Example/BeamAngularCutoffX       = 14.9314 deg # cutoff is in half length
@@ -89,7 +110,7 @@ d:So/Example/BeamAngularCutoffY       = 3.81407 deg
 # tan inverse of 4.0/60 = 3.81407 (for 80mm beam)
 
 
-i:So/Example/NumberOfHistoriesInRun   = 1000000
+i:So/Example/NumberOfHistoriesInRun   = 10000
 
 
 
