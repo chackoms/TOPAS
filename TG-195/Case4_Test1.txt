@@ -31,8 +31,8 @@ b:Ge/TestCylinder/IsParallel="False"
 s:Ge/CenterCylinder/Parent = "TestCylinder"
 s:Ge/CenterCylinder/Type="TsCylinder"
 d:Ge/CenterCylinder/RMax=0.5 cm
-d:Ge/CenterCylinder/HL = 5. cm
-d:Ge/CenterCylinder/SPhi=0. deg
+d:Ge/CenterCylinder/HL = 5 cm
+d:Ge/CenterCylinder/SPhi=360. deg
 d:Ge/CenterCylinder/DPhi=360. deg
 i:Ge/CenterCylinder/ZBins=1
 b:Ge/CenterCylinder/IsParallel="True"
@@ -50,8 +50,8 @@ s:Sc/EnergyCylinderCenter/Component                 = "CenterCylinder"
 s:Sc/EnergyCylinderCenter/OutputType                = "csv"
 b:Sc/EnergyCylinderCenter/OutputToConsole           = "TRUE"
 s:Sc/EnergyCylinderCenter/IfOutputFileAlreadyExists = "Overwrite"
-sv:Sc/EnergyCylinderCenter/Report = 2 "Mean" "Count_In_Bin"
-#s:Sc/EnergyCylinderCenter/OutputFile = "/home/michael/Documents/Topas_Work/TOPAS/TG-195/CenterCylinder"
+sv:Sc/EnergyCylinderCenter/Report = 3 "Sum" "Mean" "Count_In_Bin"
+s:Sc/EnergyCylinderCenter/OutputFile = "/home/michael/Documents/Topas_Work/TOPAS/TG-195/CenterCylinder"
 
 s:Sc/FluenceCylinderCenter/Quantity                  = "Fluence"
 s:Sc/FluenceCylinderCenter/Component                 = "CenterCylinder"
@@ -72,6 +72,7 @@ i:Gr/MyOGL/WindowSizeX = 900
 i:Gr/MyOGL/WindowSizeY = 900
 d:Gr/MyOGL/Theta       = 90. deg
 d:Gr/MyOGL/Phi         = 90. deg
+u:Gr/MyOGL/TransZ = 5
 u:Gr/MyOGL/Zoom        = 3.0
 s:Gr/MyOGL/ColorBy     = "particletype"
 b:Gr/MyOGL/HiddenLineRemovalForTrajectories = "True"
@@ -86,7 +87,7 @@ d:So/Example/BeamEnergy = 56.4 keV
 u:So/Example/BeamEnergySpread         = 0.00000000001
 s:So/Example/BeamPositionDistribution = "None"
 s:So/Example/BeamPositionCutoffShape  = "None"
-s:So/Example/BeamShape="Point"
+s:So/Example/BeamShape="Isotropic"
 
 
 s:Ge/BeamPosition/Parent="World"
@@ -108,7 +109,7 @@ d:So/Example/BeamAngularCutoffY       = 3.81407 deg
 # tan inverse of 4.0/60 = 3.81407 (for 80mm beam)
 
 
-i:So/Example/NumberOfHistoriesInRun   = 10000
+i:So/Example/NumberOfHistoriesInRun   = 100000
 
 
 

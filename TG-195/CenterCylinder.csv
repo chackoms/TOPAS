@@ -1,0 +1,6 @@
+# TOPAS Version: 3.2.p2
+# Parameter File: /home/michael/Documents/Topas_Work/TOPAS/TG-195/Case4_Test1.txt
+# Results for scorer EnergyCylinderCenter
+# Scored in component: CenterCylinder
+# EnergyDeposit ( MeV ) : Sum   Mean   Count_in_Bin   
+1.07861864566803, 1.078618685318784e-05, 107

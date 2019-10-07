@@ -74,6 +74,7 @@ s:Sc/PhaseSpaceAtCylinder/OutputType="ASCII"
 i:Sc/PhaseSpaceAtCylinder/OutputBufferSize            = 1000
 sv:Sc/PhaseSpaceAtCylinder/OnlyIncludeParticlesNamed = 1 "gamma"
 s:Sc/PhaseSpaceAtCylinder/OnlyIncludeParticlesGoing = "In"
+s:Sc/PhaseSpaceAtCylinder/OutputFile="/home/michael/Documents/Topas_Work/TOPAS/TG-195/PhaseSpaceAtCylinder"
 s:Sc/PhaseSpaceAtCylinder/IfOutputFileAlreadyExists="Overwrite"
 
 s:Sc/PhaseSpaceAtCylinderExit/Quantity = "PhaseSpace"

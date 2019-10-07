@@ -1,0 +1,123 @@
+
+i:Ts/NumberOfThreads = 0
+
+
+s:Ge/World/Material  = "Air"
+d:Ge/World/HLX       = 1.5 m
+d:Ge/World/HLY       = 1.5 m
+d:Ge/World/HLZ       = 1.5 m
+b:Ge/World/Invisible = "True"
+
+s:Gr/MyOGL/Type        = "OpenGL"
+i:Gr/MyOGL/WindowSizeX = 500
+i:Gr/MyOGL/WindowSizeY = 1500
+u:Gr/MyOGL/TransX  = 0
+u:Gr/MyOGL/TransY  = 0
+d:Gr/MyOGL/Theta       = 0. deg
+d:Gr/MyOGL/Phi         = 90. deg
+u:Gr/MyOGL/Zoom        = 2.5
+s:Gr/MyOGL/ColorBy     = "particletype"
+b:Gr/MyOGL/HiddenLineRemovalForTrajectories = "True"
+
+s:Ge/TestCylinder/Parent   = "World"
+s:Ge/TestCylinder/Type     = "TsCylinder"
+s:Ge/TestCylinder/Material = "Air"
+s:Ge/TestCylinder/DrawingStyle = "FullWireFrame"
+d:Ge/TestCylinder/RMax     = 0.5 cm
+d:Ge/TestCylinder/HL       = 0.5 cm
+d:Ge/TestCylinder/SPhi     = 360. deg
+d:Ge/TestCylinder/DPhi     = 360. deg
+d:Ge/TestCylinder/TransX   = 0. cm
+d:Ge/TestCylinder/TransY   = -100. cm - Ge/TestCylinder/HL
+d:Ge/TestCylinder/TransZ   = 0. cm
+d:Ge/TestCylinder/RotX     = 90. deg
+d:Ge/TestCylinder/RotY     = 0.0 deg
+d:Ge/TestCylinder/RotZ     = 0. deg
+s:Ge/TestCylinder/Color    = "blue"
+i:Ge/TestCylinder/RBins    = 1
+i:Ge/TestCylinder/PhiBins  = 1
+i:Ge/TestCylinder/ZBins    = 1
+
+
+s:Ge/Phantom/Type     = "TsCylinder"
+s:Ge/Phantom/Parent   = "World"
+s:Ge/Phantom/Material = "Air"
+s:Ge/Phantom/DrawingStyle = "Solid"
+d:Ge/Phantom/RMax     = 2.0 cm
+d:Ge/Phantom/HL       = 1.51371 cm # HVL for 60 kVp 3.02743 cm
+d:Ge/Phantom/SPhi     = 360. deg
+d:Ge/Phantom/DPhi     = 360. deg
+d:Ge/Phantom/TransX   = 0. cm
+d:Ge/Phantom/TransY   = -10. cm - Ge/Phantom/HL
+d:Ge/Phantom/TransZ   = 0. cm
+d:Ge/Phantom/RotX     = 90. deg
+d:Ge/Phantom/RotY     = 0.0 deg
+d:Ge/Phantom/RotZ     = 0. deg
+s:Ge/Phantom/Color    = "white"
+i:Ge/Phantom/RBins    = 1
+i:Ge/Phantom/PhiBins  = 1
+i:Ge/Phantom/ZBins    = 1
+
+
+s:Sc/PhaseSpaceAtAluminum/Quantity = "PhaseSpace"
+s:Sc/PhaseSpaceAtAluminum/Surface="Phantom/ZPlusSurface"
+s:Sc/PhaseSpaceAtAluminum/OutputType="ASCII"
+i:Sc/PhaseSpaceAtAluminum/OutputBufferSize            = 1000
+sv:Sc/PhaseSpaceAtAluminum/OnlyIncludeParticlesNamed = 1 "gamma"
+s:Sc/PhaseSpaceAtAluminum/OnlyIncludeParticlesGoing = "In"
+s:Sc/PhaseSpaceAtAluminum/IfOutputFileAlreadyExists="Overwrite"
+
+
+s:Sc/PhaseSpaceAtCylinder/Quantity = "PhaseSpace"
+s:Sc/PhaseSpaceAtCylinder/Surface="TestCylinder/ZPlusSurface"
+s:Sc/PhaseSpaceAtCylinder/OutputType="ASCII"
+i:Sc/PhaseSpaceAtCylinder/OutputBufferSize            = 1000
+sv:Sc/PhaseSpaceAtCylinder/OnlyIncludeParticlesNamed = 1 "gamma"
+s:Sc/PhaseSpaceAtCylinder/OnlyIncludeParticlesGoing = "In"
+s:Sc/PhaseSpaceAtCylinder/OutputFile="/home/michael/Documents/Topas_Work/TOPAS/TG-195/PhaseSpaceAtCylinder"
+s:Sc/PhaseSpaceAtCylinder/IfOutputFileAlreadyExists="Overwrite"
+
+s:Sc/PhaseSpaceAtCylinderExit/Quantity = "PhaseSpace"
+s:Sc/PhaseSpaceAtCylinderExit/Surface="TestCylinder/ZMinusSurface"
+s:Sc/PhaseSpaceAtCylinderExit/OutputType="ASCII"
+i:Sc/PhaseSpaceAtCylinderExit/OutputBufferSize            = 1000
+sv:Sc/PhaseSpaceAtCylinderExit/OnlyIncludeParticlesNamed = 1 "gamma"
+s:Sc/PhaseSpaceAtCylinderExit/OnlyIncludeParticlesGoing = "Out"
+s:Sc/PhaseSpaceAtCylinderExit/IfOutputFileAlreadyExists="Overwrite"
+
+
+
+
+
+s:So/Example/Type                     = "Beam"
+s:So/Example/Component                = "BeamPosition"
+s:So/Example/BeamParticle             = "gamma"
+d:So/Example/BeamEnergy = 60 keV
+u:So/Example/BeamEnergySpread         = 0.0000000001
+s:So/Example/BeamPositionDistribution = "None"
+s:So/Example/BeamPositionCutoffShape  = "None"
+s:So/Example/BeamShape="Isotropic"
+
+
+s:Ge/BeamPosition/Parent="World"
+#s:Ge/BeamPosition/Type="Group"
+d:Ge/BeamPosition/TransX=0. cm
+d:Ge/BeamPosition/TransY=0. cm
+d:Ge/BeamPosition/TransZ= 0. cm
+d:Ge/BeamPosition/RotY=0. deg
+d:Ge/BeamPosition/RotX=270. deg
+
+
+s:So/Example/BeamAngularDistribution  = "Flat"
+d:So/Example/BeamAngularCutoffX       = 0.2865 deg # cutoff is in half length tan-1(5/1000)
+d:So/Example/BeamAngularCutoffY       = 0.2865 deg
+
+sv:Ph/Default/Modules = 1 "g4em-standard_opt4"
+
+
+i:So/Example/NumberOfHistoriesInRun   = 100000
+
+
+
+i:Ts/ShowHistoryCountAtInterval = 10000
+b:Ts/PauseBeforeQuit = "True"

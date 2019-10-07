@@ -1,8 +1,8 @@
 TOPAS ASCII Phase Space
 
-Number of Original Histories: 1000
-Number of Original Histories that Reached Phase Space: 38
-Number of Scored Particles: 38
+Number of Original Histories: 100000
+Number of Original Histories that Reached Phase Space: 97795
+Number of Scored Particles: 97795
 
 Columns of data are as follows:
  1: Position X [cm]
@@ -16,8 +16,8 @@ Columns of data are as follows:
  9: Flag to tell if Third Direction Cosine is Negative (1 means true)
 10: Flag to tell if this is the First Scored Particle from this History (1 means true)
 
-Number of gamma: 38
+Number of gamma: 97795
 
-Minimum Kinetic Energy of gamma: 0.0564 MeV
+Minimum Kinetic Energy of gamma: 0.0595632 MeV
 
-Maximum Kinetic Energy of gamma: 0.0564 MeV
+Maximum Kinetic Energy of gamma: 0.06 MeV
