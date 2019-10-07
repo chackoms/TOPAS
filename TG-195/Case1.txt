@@ -28,7 +28,7 @@ d:Ge/TestCylinder/HL       = 0.5 cm
 d:Ge/TestCylinder/SPhi     = 360. deg
 d:Ge/TestCylinder/DPhi     = 360. deg
 d:Ge/TestCylinder/TransX   = 0. cm
-d:Ge/TestCylinder/TransY   = -100. cm
+d:Ge/TestCylinder/TransY   = -100. cm - Ge/TestCylinder/HL
 d:Ge/TestCylinder/TransZ   = 0. cm
 d:Ge/TestCylinder/RotX     = 90. deg
 d:Ge/TestCylinder/RotY     = 0.0 deg
@@ -41,14 +41,14 @@ i:Ge/TestCylinder/ZBins    = 1
 
 s:Ge/Phantom/Type     = "TsCylinder"
 s:Ge/Phantom/Parent   = "World"
-s:Ge/Phantom/Material = "Air"
+s:Ge/Phantom/Material = "Aluminum"
 s:Ge/Phantom/DrawingStyle = "Solid"
 d:Ge/Phantom/RMax     = 2.0 cm
-d:Ge/Phantom/HL       = 0.11365 cm
+d:Ge/Phantom/HL       = 0.7555 cm # 0.11365 for 30 keV, 0.7555 for 100 keV
 d:Ge/Phantom/SPhi     = 360. deg
 d:Ge/Phantom/DPhi     = 360. deg
 d:Ge/Phantom/TransX   = 0. cm
-d:Ge/Phantom/TransY   = -10.11365 cm
+d:Ge/Phantom/TransY   = -10. cm - Ge/Phantom/HL
 d:Ge/Phantom/TransZ   = 0. cm
 d:Ge/Phantom/RotX     = 90. deg
 d:Ge/Phantom/RotY     = 0.0 deg
@@ -91,7 +91,7 @@ s:Sc/PhaseSpaceAtCylinderExit/IfOutputFileAlreadyExists="Overwrite"
 s:So/Example/Type                     = "Beam"
 s:So/Example/Component                = "BeamPosition"
 s:So/Example/BeamParticle             = "gamma"
-d:So/Example/BeamEnergy = 30 keV
+d:So/Example/BeamEnergy = 100 keV
 u:So/Example/BeamEnergySpread         = 0.00000000001
 s:So/Example/BeamPositionDistribution = "None"
 s:So/Example/BeamPositionCutoffShape  = "None"
@@ -118,5 +118,5 @@ i:So/Example/NumberOfHistoriesInRun   = 100000
 
 
 
-i:Ts/ShowHistoryCountAtInterval = 1000
+i:Ts/ShowHistoryCountAtInterval = 10000
 b:Ts/PauseBeforeQuit = "True"
