@@ -1,0 +1,117 @@
+
+i:Ts/NumberOfThreads = 0
+
+
+s:Ge/World/Material  = "Air"
+d:Ge/World/HLX       = 2.0 m
+d:Ge/World/HLY       = 2.0 m
+d:Ge/World/HLZ       = 2.0 m
+b:Ge/World/Invisible = "True"
+
+s:Ge/TestCylinder/Parent   = "World"
+s:Ge/TestCylinder/Type     = "TsCylinder"
+s:Ge/TestCylinder/Material = "Lucite"
+s:Ge/TestCylinder/DrawingStyle = "FullWireFrame"
+d:Ge/TestCylinder/RMax     = 16. cm
+d:Ge/TestCylinder/HL       = 1.5 m
+d:Ge/TestCylinder/SPhi     = 360. deg
+d:Ge/TestCylinder/DPhi     = 360. deg
+d:Ge/TestCylinder/TransX   = 0. cm
+d:Ge/TestCylinder/TransY   = 0. cm
+d:Ge/TestCylinder/TransZ   = 0. cm
+d:Ge/TestCylinder/RotX     = 0. deg
+d:Ge/TestCylinder/RotY     = 0.0 deg
+d:Ge/TestCylinder/RotZ     = 0. deg
+s:Ge/TestCylinder/Color    = "blue"
+i:Ge/TestCylinder/RBins    = 1
+i:Ge/TestCylinder/PhiBins  = 1
+i:Ge/TestCylinder/ZBins    = 1 # 300 for 1cm bins
+b:Ge/TestCylinder/IsParallel="False"
+
+s:Ge/CenterCylinder/Parent = "TestCylinder"
+s:Ge/CenterCylinder/Type="TsCylinder"
+d:Ge/CenterCylinder/RMax=0.5 cm
+d:Ge/CenterCylinder/HL = 5 cm
+d:Ge/CenterCylinder/SPhi=360. deg
+d:Ge/CenterCylinder/DPhi=360. deg
+i:Ge/CenterCylinder/ZBins=1
+b:Ge/CenterCylinder/IsParallel="True"
+
+
+s:Sc/EnergyCylinder/Quantity                  = "EnergyDeposit"
+s:Sc/EnergyCylinder/Component                 = "TestCylinder"
+s:Sc/EnergyCylinder/OutputType                = "csv"
+b:Sc/EnergyCylinder/OutputToConsole           = "TRUE"
+s:Sc/EnergyCylinder/IfOutputFileAlreadyExists = "Overwrite"
+#s:Sc/EnergyCylinder/OutputFile = "/home/michael/Documents/Topas_Work/TOPAS/TG-195/EnergyCylinder"
+
+s:Sc/EnergyCylinderCenter/Quantity                  = "EnergyDeposit"
+s:Sc/EnergyCylinderCenter/Component                 = "CenterCylinder"
+s:Sc/EnergyCylinderCenter/OutputType                = "csv"
+b:Sc/EnergyCylinderCenter/OutputToConsole           = "TRUE"
+s:Sc/EnergyCylinderCenter/IfOutputFileAlreadyExists = "Overwrite"
+sv:Sc/EnergyCylinderCenter/Report = 3 "Sum" "Mean" "Count_In_Bin"
+s:Sc/EnergyCylinderCenter/OutputFile = "/home/michael/Documents/Topas_Work/TOPAS/TG-195/CenterCylinder"
+
+s:Sc/FluenceCylinderCenter/Quantity                  = "Fluence"
+s:Sc/FluenceCylinderCenter/Component                 = "CenterCylinder"
+s:Sc/FluenceCylinderCenter/OutputType                = "csv"
+b:Sc/FluenceCylinderCenter/OutputToConsole           = "TRUE"
+s:Sc/FluenceCylinderCenter/IfOutputFileAlreadyExists = "Overwrite"
+
+s:Sc/DoseCylinderCenter/Quantity                  = "DoseToMedium"
+s:Sc/DoseCylinderCenter/Component                 = "CenterCylinder"
+s:Sc/DoseCylinderCenter/OutputType                = "csv"
+b:Sc/DoseCylinderCenter/OutputToConsole           = "TRUE"
+sv:Sc/DoseCylinderCenter/Report = 1 "Mean"
+s:Sc/DoseCylinderCenter/IfOutputFileAlreadyExists = "Overwrite"
+
+
+s:Gr/MyOGL/Type        = "OpenGL"
+i:Gr/MyOGL/WindowSizeX = 900
+i:Gr/MyOGL/WindowSizeY = 900
+d:Gr/MyOGL/Theta       = 90. deg
+d:Gr/MyOGL/Phi         = 90. deg
+u:Gr/MyOGL/TransZ = 5
+u:Gr/MyOGL/Zoom        = 3.0
+s:Gr/MyOGL/ColorBy     = "particletype"
+b:Gr/MyOGL/HiddenLineRemovalForTrajectories = "True"
+
+
+
+
+s:So/Example/Type                     = "Beam"
+s:So/Example/Component                = "BeamPosition"
+s:So/Example/BeamParticle             = "gamma"
+d:So/Example/BeamEnergy = 56.4 keV
+u:So/Example/BeamEnergySpread         = 0.00000000001
+s:So/Example/BeamPositionDistribution = "None"
+s:So/Example/BeamPositionCutoffShape  = "None"
+s:So/Example/BeamShape="Isotropic"
+
+
+s:Ge/BeamPosition/Parent="World"
+#s:Ge/BeamPosition/Type="Group"
+d:Ge/BeamPosition/TransX=-60. cm
+d:Ge/BeamPosition/TransY=0. cm
+d:Ge/BeamPosition/TransZ= 0. cm
+d:Ge/BeamPosition/RotY=270. deg
+d:Ge/BeamPosition/RotX=90. deg
+
+
+sv:Ph/Default/Modules = 1 "g4em-standard_opt4"
+
+s:So/Example/BeamAngularDistribution  = "Flat"
+d:So/Example/BeamAngularCutoffX       = 14.9314 deg # cutoff is in half length
+# tan inverse of 16/60 = 14.9314
+d:So/Example/BeamAngularCutoffY       = 3.81407 deg
+# tan inverse of 0.5/60 = 0.477 (for 10mm beam)
+# tan inverse of 4.0/60 = 3.81407 (for 80mm beam)
+
+
+i:So/Example/NumberOfHistoriesInRun   = 100000
+
+
+
+i:Ts/ShowHistoryCountAtInterval = 1000
+b:Ts/PauseBeforeQuit = "True"
