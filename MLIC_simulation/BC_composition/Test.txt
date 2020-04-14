@@ -1,99 +1,13 @@
 
 i:Ts/NumberOfThreads = 0
 #i:Ts/Seed = 1 #starting random seed
-#b:Gr/Enable = "False"
+b:Gr/Enable = "False"
 
 s:Ge/World/Material  = "Air"
 d:Ge/World/HLX       = 3.0 m
 d:Ge/World/HLY       = 3.0 m
 d:Ge/World/HLZ       = 3.0 m
 b:Ge/World/Invisible = "True"
-
-s:Ge/MyGroup/Type="Group"
-s:Ge/MyGroup/Parent="World"
-d:Ge/MyGroup/TransX=0. m
-d:Ge/MyGroup/TransY=0. m
-d:Ge/MyGroup/TransZ=0. m
-d:Ge/MyGroup/RotX=0. deg
-d:Ge/MyGroup/RotY=0. deg
-d:Ge/MyGroup/RotZ=0. deg
-
-
-#sv:Ph/Default/LayeredMassGeometryWorlds = 2 "Phantom" "Rod"
-
-
-
-s:Ge/Phantom/Parent   = "MyGroup"
-s:Ge/Phantom/Type     = "TsBox"
-s:Ge/Phantom/Material = "G4_WATER"
-s:Ge/Phantom/DrawingStyle = "FullWireFrame"
-d:Ge/Phantom/HLX     = Tf/PhantomSize/Value cm
-d:Ge/Phantom/HLY       = 5 cm
-d:Ge/Phantom/HLZ = 5 cm
-d:Ge/Phantom/TransX   = 0. cm
-d:Ge/Phantom/TransY   = 0. cm
-d:Ge/Phantom/TransZ   = 0. cm
-d:Ge/Phantom/RotX     = 0. deg
-d:Ge/Phantom/RotY     = 0.0 deg
-d:Ge/Phantom/RotZ     = 0. deg
-s:Ge/Phantom/Color    = "blue"
-i:Ge/Phantom/XBins    = 1
-i:Ge/Phantom/YBins  = 1
-i:Ge/Phantom/ZBins    = 1
-#b:Ge/Phantom/IsParallel="True"
-
-
-#s:Ge/Rod/Parent="MyGroup"
-#s:Ge/Rod/Type="TsBox"
-#s:Ge/Rod/Material="G4_WATER"
-#d:Ge/Rod/HLX=0.635 cm
-#d:Ge/Rod/HLY=0.635 cm
-#d:Ge/Rod/HLZ=2.5 cm
-#d:Ge/Rod/TransX   = 0. cm
-#d:Ge/Rod/TransY   = 0. cm
-#d:Ge/Rod/TransZ   = 0. cm
-#d:Ge/Rod/RotX     = 0. deg
-#d:Ge/Rod/RotY     = 0.0 deg
-#d:Ge/Rod/RotZ     = 0. deg
-#s:Ge/Rod/Color    = "green"
-#b:Ge/Rod/IsParallel="True"
-
-s:Ge/MLIC/Parent   = "MyGroup"
-s:Ge/MLIC/Type     = "TsBox"
-s:Ge/MLIC/Material = "G4_WATER"
-s:Ge/MLIC/DrawingStyle = "FullWireFrame"
-d:Ge/MLIC/HLX=16. cm
-d:Ge/MLIC/HLY=5 cm
-d:Ge/MLIC/HLZ=5 cm
-d:Ge/MLIC/TransX= Tf/PhantomSizeNeg/Value - Ge/MLIC/HLX cm
-d:Ge/MLIC/TransY= 0. cm
-d:Ge/MLIC/TransZ= 0. cm
-d:Ge/MLIC/RotX= 0. deg
-d:Ge/MLIC/RotY= 0. deg
-d:Ge/MLIC/RotZ= 0. deg
-s:Ge/MLIC/Color="red"
-i:Ge/MLIC/XBins=180
-i:Ge/MLIC/YBins=1
-i:Ge/MLIC/ZBins=1
-#b:Ge/MLIC/Invisible="True"
-
-s:Sc/MLIC_Scorer/Quantity                  = "EnergyDeposit"
-s:Sc/MLIC_Scorer/Component                 = "MLIC"
-s:Sc/MLIC_Scorer/OutputType                = "csv"
-b:Sc/MLIC_Scorer/OutputToConsole           = "TRUE"
-s:Sc/MLIC_Scorer/IfOutputFileAlreadyExists = "Overwrite"
-b:Sc/MLIC_Scorer/OutputAfterRun="TRUE"
-#s:Sc/MLIC_Scorer/OutputFile = "~/Documents/Topas_Files/TOPAS/MLIC_simulation/MLICOutput"
-
-s:Gr/MyOGL/Type        = "OpenGL"
-i:Gr/MyOGL/WindowSizeX = 900
-i:Gr/MyOGL/WindowSizeY = 900
-d:Gr/MyOGL/Theta       = 0. deg
-d:Gr/MyOGL/Phi         = 90. deg
-u:Gr/MyOGL/Zoom        = 1
-s:Gr/MyOGL/ColorBy     = "particletype"
-b:Gr/MyOGL/HiddenLineRemovalForTrajectories = "True"
-
 
 s:Tf/PhantomSize/Function  = "Step"
 dv:Tf/PhantomSize/Times    = 145
@@ -684,6 +598,77 @@ dv:Tf/PhantomSizeNeg/Values = 145
 -15.77762
 -15.88873
 -15.99984 cm
+
+
+s:Ge/MyGroup/Type="Group"
+s:Ge/MyGroup/Parent="World"
+d:Ge/MyGroup/TransX=0. m
+d:Ge/MyGroup/TransY=0. m
+d:Ge/MyGroup/TransZ=0. m
+d:Ge/MyGroup/RotX=0. deg
+d:Ge/MyGroup/RotY=0. deg
+d:Ge/MyGroup/RotZ=0. deg
+
+
+
+
+s:Ge/Phantom/Parent   = "MyGroup"
+s:Ge/Phantom/Type     = "TsBox"
+s:Ge/Phantom/Material = "G4_WATER"
+s:Ge/Phantom/DrawingStyle = "FullWireFrame"
+d:Ge/Phantom/HLX     = Tf/PhantomSize/Value cm
+d:Ge/Phantom/HLY       = 5 cm
+d:Ge/Phantom/HLZ = 5 cm
+d:Ge/Phantom/TransX   = 0. cm
+d:Ge/Phantom/TransY   = 0. cm
+d:Ge/Phantom/TransZ   = 0. cm
+d:Ge/Phantom/RotX     = 0. deg
+d:Ge/Phantom/RotY     = 0.0 deg
+d:Ge/Phantom/RotZ     = 0. deg
+s:Ge/Phantom/Color    = "blue"
+i:Ge/Phantom/XBins    = 1
+i:Ge/Phantom/YBins  = 1
+i:Ge/Phantom/ZBins    = 1
+d:Ge/Phantom/CheckForOverlapsTolerance = 5. mm
+
+
+s:Ge/MLIC/Parent   = "MyGroup"
+s:Ge/MLIC/Type     = "TsBox"
+s:Ge/MLIC/Material = "G4_WATER"
+s:Ge/MLIC/DrawingStyle = "FullWireFrame"
+d:Ge/MLIC/HLX=16. cm
+d:Ge/MLIC/HLY=5 cm
+d:Ge/MLIC/HLZ=5 cm
+d:Ge/MLIC/TransX= Tf/PhantomSizeNeg/Value - Ge/MLIC/HLX cm
+d:Ge/MLIC/TransY= 0. cm
+d:Ge/MLIC/TransZ= 0. cm
+d:Ge/MLIC/RotX= 0. deg
+d:Ge/MLIC/RotY= 0. deg
+d:Ge/MLIC/RotZ= 0. deg
+s:Ge/MLIC/Color="red"
+i:Ge/MLIC/XBins=180
+i:Ge/MLIC/YBins=1
+i:Ge/MLIC/ZBins=1
+#b:Ge/MLIC/Invisible="True"
+
+s:Sc/MLIC_Scorer/Quantity                  = "EnergyDeposit"
+s:Sc/MLIC_Scorer/Component                 = "MLIC"
+s:Sc/MLIC_Scorer/OutputType                = "csv"
+b:Sc/MLIC_Scorer/OutputToConsole           = "TRUE"
+s:Sc/MLIC_Scorer/IfOutputFileAlreadyExists = "Overwrite"
+b:Sc/MLIC_Scorer/OutputAfterRun="TRUE"
+#s:Sc/MLIC_Scorer/OutputFile = "~/Documents/Topas_Files/TOPAS/MLIC_simulation/MLICOutput"
+
+s:Gr/MyOGL/Type        = "OpenGL"
+i:Gr/MyOGL/WindowSizeX = 900
+i:Gr/MyOGL/WindowSizeY = 900
+d:Gr/MyOGL/Theta       = 0. deg
+d:Gr/MyOGL/Phi         = 90. deg
+u:Gr/MyOGL/Zoom        = 1
+s:Gr/MyOGL/ColorBy     = "particletype"
+b:Gr/MyOGL/HiddenLineRemovalForTrajectories = "True"
+
+
 
 
 i:Tf/NumberOfSequentialTimes = 145
