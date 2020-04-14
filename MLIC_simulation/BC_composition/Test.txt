@@ -670,7 +670,7 @@ b:Gr/MyOGL/HiddenLineRemovalForTrajectories = "True"
 
 
 
-
+d:Tf/TimelineStart = 0. ms
 i:Tf/NumberOfSequentialTimes = 145
 d:Tf/TimelineEnd             = 720. ms
 
