@@ -629,7 +629,7 @@ s:Ge/Phantom/Color    = "blue"
 i:Ge/Phantom/XBins    = 1
 i:Ge/Phantom/YBins  = 1
 i:Ge/Phantom/ZBins    = 1
-d:Ge/Phantom/CheckForOverlapsTolerance = 5. mm
+#d:Ge/Phantom/CheckForOverlapsTolerance = 5. mm
 
 
 s:Ge/MLIC/Parent   = "MyGroup"
@@ -639,7 +639,7 @@ s:Ge/MLIC/DrawingStyle = "FullWireFrame"
 d:Ge/MLIC/HLX=16. cm
 d:Ge/MLIC/HLY=5 cm
 d:Ge/MLIC/HLZ=5 cm
-d:Ge/MLIC/TransX= Tf/PhantomSizeNeg/Value - Ge/MLIC/HLX cm
+d:Ge/MLIC/TransX= Tf/PhantomSizeNeg/Value - 162 mm
 d:Ge/MLIC/TransY= 0. cm
 d:Ge/MLIC/TransZ= 0. cm
 d:Ge/MLIC/RotX= 0. deg
@@ -704,5 +704,5 @@ i:So/Example/NumberOfHistoriesInRun   = 1000
 
 
 
-i:Ts/ShowHistoryCountAtInterval = 100
+i:Ts/ShowHistoryCountAtInterval = 1000
 b:Ts/PauseBeforeQuit = "True"
