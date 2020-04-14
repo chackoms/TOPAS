@@ -1,0 +1,143 @@
+
+i:Ts/NumberOfThreads = 0
+b:Gr/Enable = "False"
+
+
+s:Ge/World/Material  = "Air"
+d:Ge/World/HLX       = 2.0 m
+d:Ge/World/HLY       = 2.0 m
+d:Ge/World/HLZ       = 2.0 m
+b:Ge/World/Invisible = "True"
+
+s:Ge/MyGroup/Type="Group"
+s:Ge/MyGroup/Parent="World"
+d:Ge/MyGroup/TransX=0. m
+d:Ge/MyGroup/TransY=Tf/YBoxTrans/Value cm
+d:Ge/MyGroup/TransZ=Tf/ZBoxTrans/Value cm
+d:Ge/MyGroup/RotX=0. deg
+d:Ge/MyGroup/RotY=0. deg
+d:Ge/MyGroup/RotZ=0. deg
+
+
+sv:Ph/Default/LayeredMassGeometryWorlds = 2 "Phantom" "Rod"
+
+
+
+s:Ge/Phantom/Parent   = "MyGroup"
+s:Ge/Phantom/Type     = "TsBox"
+s:Ge/Phantom/Material = "G4_WATER"
+s:Ge/Phantom/DrawingStyle = "FullWireFrame"
+d:Ge/Phantom/HLX     = 5 cm
+d:Ge/Phantom/HLY       = 5 cm
+d:Ge/Phantom/HLZ = 5 cm
+d:Ge/Phantom/TransX   = 0. cm
+d:Ge/Phantom/TransY   = 0. cm
+d:Ge/Phantom/TransZ   = 0. cm
+d:Ge/Phantom/RotX     = 0. deg
+d:Ge/Phantom/RotY     = 0.0 deg
+d:Ge/Phantom/RotZ     = 0. deg
+s:Ge/Phantom/Color    = "blue"
+i:Ge/Phantom/XBins    = 1
+i:Ge/Phantom/YBins  = 1
+i:Ge/Phantom/ZBins    = 1
+b:Ge/Phantom/IsParallel="True"
+
+
+s:Ge/Rod/Parent="MyGroup"
+s:Ge/Rod/Type="TsBox"
+s:Ge/Rod/Material="Titanium"
+d:Ge/Rod/HLX=0.635 cm
+d:Ge/Rod/HLY=0.635 cm
+d:Ge/Rod/HLZ=2.5 cm
+d:Ge/Rod/TransX   = 0. cm
+d:Ge/Rod/TransY   = 0. cm
+d:Ge/Rod/TransZ   = 0. cm
+d:Ge/Rod/RotX     = 0. deg
+d:Ge/Rod/RotY     = 0.0 deg
+d:Ge/Rod/RotZ     = 0. deg
+s:Ge/Rod/Color    = "green"
+b:Ge/Rod/IsParallel="True"
+
+s:Ge/MLIC/Parent   = "MyGroup"
+s:Ge/MLIC/Type     = "TsBox"
+s:Ge/MLIC/Material = "G4_WATER"
+s:Ge/MLIC/DrawingStyle = "FullWireFrame"
+d:Ge/MLIC/HLX=20. cm
+d:Ge/MLIC/HLY=5 cm
+d:Ge/MLIC/HLZ=5 cm
+d:Ge/MLIC/TransX= Ge/Phantom/HLX + Ge/MLIC/HLX cm
+d:Ge/MLIC/TransY= 0. cm
+d:Ge/MLIC/TransZ= 0. cm
+d:Ge/MLIC/RotX= 0. deg
+d:Ge/MLIC/RotY= 0. deg
+d:Ge/MLIC/RotZ= 0. deg
+s:Ge/MLIC/Color="red"
+i:Ge/MLIC/XBins=180
+i:Ge/MLIC/YBins=1
+i:Ge/MLIC/ZBins=1
+b:Ge/MLIC/Invisible="True"
+
+s:Sc/MLIC_Scorer/Quantity                  = "EnergyDeposit"
+s:Sc/MLIC_Scorer/Component                 = "MLIC"
+s:Sc/MLIC_Scorer/OutputType                = "csv"
+b:Sc/MLIC_Scorer/OutputToConsole           = "TRUE"
+s:Sc/MLIC_Scorer/IfOutputFileAlreadyExists = "Overwrite"
+b:Sc/MLIC_Scorer/OutputAfterRun="TRUE"
+#s:Sc/MLIC_Scorer/OutputFile = "~/Documents/Topas_Files/TOPAS/MLIC_simulation/MLICOutput"
+
+s:Gr/MyOGL/Type        = "OpenGL"
+i:Gr/MyOGL/WindowSizeX = 900
+i:Gr/MyOGL/WindowSizeY = 900
+d:Gr/MyOGL/Theta       = 90. deg
+d:Gr/MyOGL/Phi         = 0. deg
+u:Gr/MyOGL/Zoom        = 25
+s:Gr/MyOGL/ColorBy     = "particletype"
+b:Gr/MyOGL/HiddenLineRemovalForTrajectories = "True"
+
+s:Tf/ZBoxTrans/Function            = "Step"
+dv:Tf/ZBoxTrans/Times                = 11 0 10 20 30 40 50 60 70 80 90 100 ms
+dv:Tf/ZBoxTrans/Values=11 -4.5 -3.5 -2.5 -1.5 -0.5 0 0.5 1.5 2.5 3.5 4.5 cm
+d:Tf/ZBoxTrans/StartValue          = -4.5 cm
+#d:Tf/ZBoxTrans/RepetitionInterval=220 ms
+
+s:Tf/YBoxTrans/Function="Step"
+dv:Tf/YBoxTrans/Times = 11 0 100 200 300 400 500 600 700 800 900 1000 ms
+dv:Tf/YBoxTrans/Values=11 -4.5 -3.5 -2.5 -1.5 -0.5 0 0.5 1.5 2.5 3.5 4.5 cm
+d:Tf/YBoxTrans/StartValue = -4.5 cm
+
+
+i:Tf/NumberOfSequentialTimes = 121
+d:Tf/TimelineEnd             = 1000. ms
+
+s:So/Example/Type                     = "Beam"
+s:So/Example/Component                = "BeamPosition"
+s:So/Example/BeamParticle             = "proton"
+d:So/Example/BeamEnergy = 220. MeV
+u:So/Example/BeamEnergySpread         = 0.00000000001
+s:So/Example/BeamPositionDistribution = "None"
+s:So/Example/BeamPositionCutoffShape  = "None"
+s:So/Example/BeamShape="Isotropic"
+
+
+s:Ge/BeamPosition/Parent="World"
+#s:Ge/BeamPosition/Type="Group"
+d:Ge/BeamPosition/TransX=-6 cm
+d:Ge/BeamPosition/TransY=0. cm
+d:Ge/BeamPosition/TransZ= 0. cm
+d:Ge/BeamPosition/RotY=270. deg
+d:Ge/BeamPosition/RotX=90. deg
+
+
+sv:Ph/Default/Modules = 1 "g4em-standard_opt4"
+
+s:So/Example/BeamAngularDistribution  = "Flat"
+d:So/Example/BeamAngularCutoffY       = 0.95 deg
+d:So/Example/BeamAngularCutoffX       = 0.95 deg
+#d:So/Example/BeamAngularCutoffY       = 2.145 deg
+#d:So/Example/BeamAngularCutoffX       = 2.145 deg
+i:So/Example/NumberOfHistoriesInRun   = 1000
+
+
+
+i:Ts/ShowHistoryCountAtInterval = 100
+b:Ts/PauseBeforeQuit = "True"

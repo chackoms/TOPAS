@@ -1,0 +1,723 @@
+
+i:Ts/NumberOfThreads = 0
+#i:Ts/Seed = 1 #starting random seed
+#b:Gr/Enable = "False"
+
+s:Ge/World/Material  = "Air"
+d:Ge/World/HLX       = 3.0 m
+d:Ge/World/HLY       = 3.0 m
+d:Ge/World/HLZ       = 3.0 m
+b:Ge/World/Invisible = "True"
+
+s:Ge/MyGroup/Type="Group"
+s:Ge/MyGroup/Parent="World"
+d:Ge/MyGroup/TransX=0. m
+d:Ge/MyGroup/TransY=0. m
+d:Ge/MyGroup/TransZ=0. m
+d:Ge/MyGroup/RotX=0. deg
+d:Ge/MyGroup/RotY=0. deg
+d:Ge/MyGroup/RotZ=0. deg
+
+
+#sv:Ph/Default/LayeredMassGeometryWorlds = 2 "Phantom" "Rod"
+
+
+
+s:Ge/Phantom/Parent   = "MyGroup"
+s:Ge/Phantom/Type     = "TsBox"
+s:Ge/Phantom/Material = "G4_WATER"
+s:Ge/Phantom/DrawingStyle = "FullWireFrame"
+d:Ge/Phantom/HLX     = Tf/PhantomSize/Value cm
+d:Ge/Phantom/HLY       = 5 cm
+d:Ge/Phantom/HLZ = 5 cm
+d:Ge/Phantom/TransX   = 0. cm
+d:Ge/Phantom/TransY   = 0. cm
+d:Ge/Phantom/TransZ   = 0. cm
+d:Ge/Phantom/RotX     = 0. deg
+d:Ge/Phantom/RotY     = 0.0 deg
+d:Ge/Phantom/RotZ     = 0. deg
+s:Ge/Phantom/Color    = "blue"
+i:Ge/Phantom/XBins    = 1
+i:Ge/Phantom/YBins  = 1
+i:Ge/Phantom/ZBins    = 1
+#b:Ge/Phantom/IsParallel="True"
+
+
+#s:Ge/Rod/Parent="MyGroup"
+#s:Ge/Rod/Type="TsBox"
+#s:Ge/Rod/Material="G4_WATER"
+#d:Ge/Rod/HLX=0.635 cm
+#d:Ge/Rod/HLY=0.635 cm
+#d:Ge/Rod/HLZ=2.5 cm
+#d:Ge/Rod/TransX   = 0. cm
+#d:Ge/Rod/TransY   = 0. cm
+#d:Ge/Rod/TransZ   = 0. cm
+#d:Ge/Rod/RotX     = 0. deg
+#d:Ge/Rod/RotY     = 0.0 deg
+#d:Ge/Rod/RotZ     = 0. deg
+#s:Ge/Rod/Color    = "green"
+#b:Ge/Rod/IsParallel="True"
+
+s:Ge/MLIC/Parent   = "MyGroup"
+s:Ge/MLIC/Type     = "TsBox"
+s:Ge/MLIC/Material = "G4_WATER"
+s:Ge/MLIC/DrawingStyle = "FullWireFrame"
+d:Ge/MLIC/HLX=16. cm
+d:Ge/MLIC/HLY=5 cm
+d:Ge/MLIC/HLZ=5 cm
+d:Ge/MLIC/TransX= Tf/PhantomSizeNeg/Value - Ge/MLIC/HLX cm
+d:Ge/MLIC/TransY= 0. cm
+d:Ge/MLIC/TransZ= 0. cm
+d:Ge/MLIC/RotX= 0. deg
+d:Ge/MLIC/RotY= 0. deg
+d:Ge/MLIC/RotZ= 0. deg
+s:Ge/MLIC/Color="red"
+i:Ge/MLIC/XBins=180
+i:Ge/MLIC/YBins=1
+i:Ge/MLIC/ZBins=1
+#b:Ge/MLIC/Invisible="True"
+
+s:Sc/MLIC_Scorer/Quantity                  = "EnergyDeposit"
+s:Sc/MLIC_Scorer/Component                 = "MLIC"
+s:Sc/MLIC_Scorer/OutputType                = "csv"
+b:Sc/MLIC_Scorer/OutputToConsole           = "TRUE"
+s:Sc/MLIC_Scorer/IfOutputFileAlreadyExists = "Overwrite"
+b:Sc/MLIC_Scorer/OutputAfterRun="TRUE"
+#s:Sc/MLIC_Scorer/OutputFile = "~/Documents/Topas_Files/TOPAS/MLIC_simulation/MLICOutput"
+
+s:Gr/MyOGL/Type        = "OpenGL"
+i:Gr/MyOGL/WindowSizeX = 900
+i:Gr/MyOGL/WindowSizeY = 900
+d:Gr/MyOGL/Theta       = 0. deg
+d:Gr/MyOGL/Phi         = 90. deg
+u:Gr/MyOGL/Zoom        = 1
+s:Gr/MyOGL/ColorBy     = "particletype"
+b:Gr/MyOGL/HiddenLineRemovalForTrajectories = "True"
+
+
+s:Tf/PhantomSize/Function  = "Step"
+dv:Tf/PhantomSize/Times    = 145
+0
+5
+10
+15
+20
+25
+30
+35
+40
+45
+50
+55
+60
+65
+70
+75
+80
+85
+90
+95
+100
+105
+110
+115
+120
+125
+130
+135
+140
+145
+150
+155
+160
+165
+170
+175
+180
+185
+190
+195
+200
+205
+210
+215
+220
+225
+230
+235
+240
+245
+250
+255
+260
+265
+270
+275
+280
+285
+290
+295
+300
+305
+310
+315
+320
+325
+330
+335
+340
+345
+350
+355
+360
+365
+370
+375
+380
+385
+390
+395
+400
+405
+410
+415
+420
+425
+430
+435
+440
+445
+450
+455
+460
+465
+470
+475
+480
+485
+490
+495
+500
+505
+510
+515
+520
+525
+530
+535
+540
+545
+550
+555
+560
+565
+570
+575
+580
+585
+590
+595
+600
+605
+610
+615
+620
+625
+630
+635
+640
+645
+650
+655
+660
+665
+670
+675
+680
+685
+690
+695
+700
+705
+710
+715
+720 ms
+
+
+dv:Tf/PhantomSize/Values   = 145
+0
+0.11111
+0.22222
+0.33333
+0.44444
+0.55555
+0.66666
+0.77777
+0.88888
+0.99999
+1.1111
+1.22221
+1.33332
+1.44443
+1.55554
+1.66665
+1.77776
+1.88887
+1.99998
+2.11109
+2.2222
+2.33331
+2.44442
+2.55553
+2.66664
+2.77775
+2.88886
+2.99997
+3.11108
+3.22219
+3.3333
+3.44441
+3.55552
+3.66663
+3.77774
+3.88885
+3.99996
+4.11107
+4.22218
+4.33329
+4.4444
+4.55551
+4.66662
+4.77773
+4.88884
+4.99995
+5.11106
+5.22217
+5.33328
+5.44439
+5.5555
+5.66661
+5.77772
+5.88883
+5.99994
+6.11105
+6.22216
+6.33327
+6.44438
+6.55549
+6.6666
+6.77771
+6.88882
+6.99993
+7.11104
+7.22215
+7.33326
+7.44437
+7.55548
+7.66659
+7.7777
+7.88881
+7.99992
+8.11103
+8.22214
+8.33325
+8.44436
+8.55547
+8.66658
+8.77769
+8.8888
+8.99991
+9.11102
+9.22213
+9.33324
+9.44435
+9.55546
+9.66657
+9.77768
+9.88879
+9.9999
+10.11101
+10.22212
+10.33323
+10.44434
+10.55545
+10.66656
+10.77767
+10.88878
+10.99989
+11.111
+11.22211
+11.33322
+11.44433
+11.55544
+11.66655
+11.77766
+11.88877
+11.99988
+12.11099
+12.2221
+12.33321
+12.44432
+12.55543
+12.66654
+12.77765
+12.88876
+12.99987
+13.11098
+13.22209
+13.3332
+13.44431
+13.55542
+13.66653
+13.77764
+13.88875
+13.99986
+14.11097
+14.22208
+14.33319
+14.4443
+14.55541
+14.66652
+14.77763
+14.88874
+14.99985
+15.11096
+15.22207
+15.33318
+15.44429
+15.5554
+15.66651
+15.77762
+15.88873
+15.99984 cm
+
+s:Tf/PhantomSizeNeg/Function  = "Step"
+dv:Tf/PhantomSizeNeg/Times    = 145
+0
+5
+10
+15
+20
+25
+30
+35
+40
+45
+50
+55
+60
+65
+70
+75
+80
+85
+90
+95
+100
+105
+110
+115
+120
+125
+130
+135
+140
+145
+150
+155
+160
+165
+170
+175
+180
+185
+190
+195
+200
+205
+210
+215
+220
+225
+230
+235
+240
+245
+250
+255
+260
+265
+270
+275
+280
+285
+290
+295
+300
+305
+310
+315
+320
+325
+330
+335
+340
+345
+350
+355
+360
+365
+370
+375
+380
+385
+390
+395
+400
+405
+410
+415
+420
+425
+430
+435
+440
+445
+450
+455
+460
+465
+470
+475
+480
+485
+490
+495
+500
+505
+510
+515
+520
+525
+530
+535
+540
+545
+550
+555
+560
+565
+570
+575
+580
+585
+590
+595
+600
+605
+610
+615
+620
+625
+630
+635
+640
+645
+650
+655
+660
+665
+670
+675
+680
+685
+690
+695
+700
+705
+710
+715
+720 ms
+dv:Tf/PhantomSizeNeg/Values = 145
+0
+-0.11111
+-0.22222
+-0.33333
+-0.44444
+-0.55555
+-0.66666
+-0.77777
+-0.88888
+-0.99999
+-1.1111
+-1.22221
+-1.33332
+-1.44443
+-1.55554
+-1.66665
+-1.77776
+-1.88887
+-1.99998
+-2.11109
+-2.2222
+-2.33331
+-2.44442
+-2.55553
+-2.66664
+-2.77775
+-2.88886
+-2.99997
+-3.11108
+-3.22219
+-3.3333
+-3.44441
+-3.55552
+-3.66663
+-3.77774
+-3.88885
+-3.99996
+-4.11107
+-4.22218
+-4.33329
+-4.4444
+-4.55551
+-4.66662
+-4.77773
+-4.88884
+-4.99995
+-5.11106
+-5.22217
+-5.33328
+-5.44439
+-5.5555
+-5.66661
+-5.77772
+-5.88883
+-5.99994
+-6.11105
+-6.22216
+-6.33327
+-6.44438
+-6.55549
+-6.6666
+-6.77771
+-6.88882
+-6.99993
+-7.11104
+-7.22215
+-7.33326
+-7.44437
+-7.55548
+-7.66659
+-7.7777
+-7.88881
+-7.99992
+-8.11103
+-8.22214
+-8.33325
+-8.44436
+-8.55547
+-8.66658
+-8.77769
+-8.8888
+-8.99991
+-9.11102
+-9.22213
+-9.33324
+-9.44435
+-9.55546
+-9.66657
+-9.77768
+-9.88879
+-9.9999
+-10.11101
+-10.22212
+-10.33323
+-10.44434
+-10.55545
+-10.66656
+-10.77767
+-10.88878
+-10.99989
+-11.111
+-11.22211
+-11.33322
+-11.44433
+-11.55544
+-11.66655
+-11.77766
+-11.88877
+-11.99988
+-12.11099
+-12.2221
+-12.33321
+-12.44432
+-12.55543
+-12.66654
+-12.77765
+-12.88876
+-12.99987
+-13.11098
+-13.22209
+-13.3332
+-13.44431
+-13.55542
+-13.66653
+-13.77764
+-13.88875
+-13.99986
+-14.11097
+-14.22208
+-14.33319
+-14.4443
+-14.55541
+-14.66652
+-14.77763
+-14.88874
+-14.99985
+-15.11096
+-15.22207
+-15.33318
+-15.44429
+-15.5554
+-15.66651
+-15.77762
+-15.88873
+-15.99984 cm
+
+
+i:Tf/NumberOfSequentialTimes = 145
+d:Tf/TimelineEnd             = 720. ms
+
+s:So/Example/Type                     = "Beam"
+s:So/Example/Component                = "BeamPosition"
+s:So/Example/BeamParticle             = "proton"
+d:So/Example/BeamEnergy = 220 MeV
+u:So/Example/BeamEnergySpread         = 0.00000000001
+s:So/Example/BeamPositionDistribution = "None"
+s:So/Example/BeamPositionCutoffShape  = "None"
+s:So/Example/BeamShape="Isotropic"
+
+
+s:Ge/BeamPosition/Parent="World"
+#s:Ge/BeamPosition/Type="Group"
+d:Ge/BeamPosition/TransX= 1 cm + Tf/PhantomSize/Value
+d:Ge/BeamPosition/TransY=0. cm
+d:Ge/BeamPosition/TransZ= 0. cm
+d:Ge/BeamPosition/RotY=90. deg
+d:Ge/BeamPosition/RotX=0. deg
+
+
+sv:Ph/Default/Modules = 1 "g4em-standard_opt4"
+
+s:So/Example/BeamAngularDistribution  = "Flat"
+d:So/Example/BeamAngularCutoffY       = 0.95 deg
+d:So/Example/BeamAngularCutoffX       = 0.95 deg
+#d:So/Example/BeamAngularCutoffY       = 2.145 deg
+#d:So/Example/BeamAngularCutoffX       = 2.145 deg
+i:So/Example/NumberOfHistoriesInRun   = 1000
+
+
+
+i:Ts/ShowHistoryCountAtInterval = 100
+b:Ts/PauseBeforeQuit = "True"
