@@ -17,7 +17,7 @@ from scipy.optimize import nnls
 os.chdir('/Users/michaelchacko/Documents/Topas_Files/TOPAS/MLIC_simulation/BC_composition')
 set=sorted(glob.glob('/Users/michaelchacko/Documents/Topas_Files/TOPAS/MLIC_simulation/BC_composition/*.csv'))
 
-BP_library=np.empty([180,len(set)])
+BP_library=np.empty([165,len(set)])
 
 for x in range(0,len(set)):
     csv_file_object=csv.reader(open(set[x],newline=''),delimiter=',')
