@@ -1,0 +1,109 @@
+
+i:Ts/NumberOfThreads = 0
+#i:Ts/Seed = 1 #starting random seed
+#b:Gr/Enable = "False"
+
+s:Ge/World/Material  = "Air"
+d:Ge/World/HLX       = 3.0 m
+d:Ge/World/HLY       = 3.0 m
+d:Ge/World/HLZ       = 3.0 m
+b:Ge/World/Invisible = "True"
+
+s:Ge/MyGroup/Type="Group"
+s:Ge/MyGroup/Parent="World"
+d:Ge/MyGroup/TransX=0. m
+d:Ge/MyGroup/TransY=0. m
+d:Ge/MyGroup/TransZ=0. m
+d:Ge/MyGroup/RotX=0. deg
+d:Ge/MyGroup/RotY=0. deg
+d:Ge/MyGroup/RotZ=0. deg
+
+
+
+
+s:Ge/Phantom/Parent   = "MyGroup"
+s:Ge/Phantom/Type     = "TsBox"
+s:Ge/Phantom/Material = "G4_WATER"
+s:Ge/Phantom/DrawingStyle = "FullWireFrame"
+d:Ge/Phantom/HLX     = 16.4 cm
+d:Ge/Phantom/HLY       = 5 cm
+d:Ge/Phantom/HLZ = 5 cm
+d:Ge/Phantom/TransX   = 0. cm
+d:Ge/Phantom/TransY   = 0. cm
+d:Ge/Phantom/TransZ   = 0. cm
+d:Ge/Phantom/RotX     = 0. deg
+d:Ge/Phantom/RotY     = 0.0 deg
+d:Ge/Phantom/RotZ     = 0. deg
+s:Ge/Phantom/Color    = "blue"
+i:Ge/Phantom/XBins    = 1
+i:Ge/Phantom/YBins  = 1
+i:Ge/Phantom/ZBins    = 1
+
+s:Ge/MLIC/Parent   = "MyGroup"
+s:Ge/MLIC/Type     = "TsBox"
+s:Ge/MLIC/Material = "G4_WATER"
+s:Ge/MLIC/DrawingStyle = "FullWireFrame"
+d:Ge/MLIC/HLX=16.5 cm
+d:Ge/MLIC/HLY=5 cm
+d:Ge/MLIC/HLZ=5 cm
+d:Ge/MLIC/TransX= -34 cm
+d:Ge/MLIC/TransY= 0. cm
+d:Ge/MLIC/TransZ= 0. cm
+d:Ge/MLIC/RotX= 0. deg
+d:Ge/MLIC/RotY= 0. deg
+d:Ge/MLIC/RotZ= 0. deg
+s:Ge/MLIC/Color="red"
+i:Ge/MLIC/XBins=165
+i:Ge/MLIC/YBins=1
+i:Ge/MLIC/ZBins=1
+b:Ge/MLIC/Invisible="True"
+
+s:Sc/MLIC_Scorer/Quantity                  = "EnergyDeposit"
+s:Sc/MLIC_Scorer/Component                 = "MLIC"
+s:Sc/MLIC_Scorer/OutputType                = "csv"
+b:Sc/MLIC_Scorer/OutputToConsole           = "TRUE"
+s:Sc/MLIC_Scorer/IfOutputFileAlreadyExists = "Overwrite"
+b:Sc/MLIC_Scorer/OutputAfterRun="TRUE"
+#s:Sc/MLIC_Scorer/OutputFile = "~/Documents/Topas_Files/TOPAS/MLIC_simulation/MLICOutput"
+
+s:Gr/MyOGL/Type        = "OpenGL"
+i:Gr/MyOGL/WindowSizeX = 900
+i:Gr/MyOGL/WindowSizeY = 900
+d:Gr/MyOGL/Theta       = 0. deg
+d:Gr/MyOGL/Phi         = 90. deg
+u:Gr/MyOGL/Zoom        = 1
+s:Gr/MyOGL/ColorBy     = "particletype"
+b:Gr/MyOGL/HiddenLineRemovalForTrajectories = "True"
+
+s:So/Example/Type                     = "Beam"
+s:So/Example/Component                = "BeamPosition"
+s:So/Example/BeamParticle             = "proton"
+d:So/Example/BeamEnergy = 230 MeV
+u:So/Example/BeamEnergySpread         = 0.00000000001
+s:So/Example/BeamPositionDistribution = "None"
+s:So/Example/BeamPositionCutoffShape  = "None"
+s:So/Example/BeamShape="Isotropic"
+
+
+s:Ge/BeamPosition/Parent="World"
+#s:Ge/BeamPosition/Type="Group"
+d:Ge/BeamPosition/TransX= Ge/Phantom/HLX + 1 cm
+d:Ge/BeamPosition/TransY=0. cm
+d:Ge/BeamPosition/TransZ= 0. cm
+d:Ge/BeamPosition/RotY=90. deg
+d:Ge/BeamPosition/RotX=0. deg
+
+
+sv:Ph/Default/Modules = 1 "g4em-standard_opt4"
+
+s:So/Example/BeamAngularDistribution  = "Flat"
+d:So/Example/BeamAngularCutoffY       = 0.95 deg
+d:So/Example/BeamAngularCutoffX       = 0.95 deg
+#d:So/Example/BeamAngularCutoffY       = 2.145 deg
+#d:So/Example/BeamAngularCutoffX       = 2.145 deg
+i:So/Example/NumberOfHistoriesInRun   = 1000
+
+
+
+i:Ts/ShowHistoryCountAtInterval = 1000
+b:Ts/PauseBeforeQuit = "True"
