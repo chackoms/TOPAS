@@ -726,7 +726,7 @@ d:Ge/MLIC/RotX= 0. deg
 d:Ge/MLIC/RotY= 0. deg
 d:Ge/MLIC/RotZ= 0. deg
 s:Ge/MLIC/Color="red"
-i:Ge/MLIC/XBins=180
+i:Ge/MLIC/XBins=165
 i:Ge/MLIC/YBins=1
 i:Ge/MLIC/ZBins=1
 #b:Ge/MLIC/Invisible="True"
@@ -751,13 +751,13 @@ b:Gr/MyOGL/HiddenLineRemovalForTrajectories = "True"
 
 
 d:Tf/TimelineStart = 0. ms
-i:Tf/NumberOfSequentialTimes = 145
-d:Tf/TimelineEnd             = 720. ms
+i:Tf/NumberOfSequentialTimes = 165
+d:Tf/TimelineEnd             = 820. ms
 
 s:So/Example/Type                     = "Beam"
 s:So/Example/Component                = "BeamPosition"
 s:So/Example/BeamParticle             = "proton"
-d:So/Example/BeamEnergy = 220 MeV
+d:So/Example/BeamEnergy = 230 MeV
 u:So/Example/BeamEnergySpread         = 0.00000000001
 s:So/Example/BeamPositionDistribution = "None"
 s:So/Example/BeamPositionCutoffShape  = "None"
