@@ -66,8 +66,8 @@ element_wise=np.multiply(coeff_x,BP_library)
 dot_product=np.dot(BP_library,coeff_x)
 final_weighted_element_wise=np.sum(element_wise,axis=1)
 plt.figure(0)
-plt.plot(np.arange(0,180),final_weighted_element_wise)
+plt.plot(np.arange(0,165),final_weighted_element_wise)
 plt.figure(1)
-plt.plot(np.arange(0,180),BP_measured)
+plt.plot(np.arange(0,165),BP_measured)
 
 #%% Find WET
