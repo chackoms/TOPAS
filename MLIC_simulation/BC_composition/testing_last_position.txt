@@ -52,15 +52,15 @@ d:Ge/MLIC/TransY= 0. cm
 d:Ge/MLIC/TransZ= 0. cm
 d:Ge/MLIC/RotX= 0. deg
 d:Ge/MLIC/RotY= 0. deg
-d:Ge/MLIC/RotZ= 0. deg
+d:Ge/MLIC/RotZ= 180. deg
 s:Ge/MLIC/Color="red"
 i:Ge/MLIC/XBins=165
 i:Ge/MLIC/YBins=1
 i:Ge/MLIC/ZBins=1
 #b:Ge/MLIC/Invisible="True"
 
-s:Sc/MLIC_Scorer/Quantity                  = "DosetoMedium"
-b:Sc/MLIC_Scorer/PreCalculateStoppingPowerRatios = "True"
+s:Sc/MLIC_Scorer/Quantity                  = "EnergyDeposit"
+#b:Sc/MLIC_Scorer/PreCalculateStoppingPowerRatios = "True"
 s:Sc/MLIC_Scorer/Component                 = "MLIC"
 s:Sc/MLIC_Scorer/OutputType                = "csv"
 b:Sc/MLIC_Scorer/OutputToConsole           = "TRUE"
@@ -99,11 +99,11 @@ d:Ge/BeamPosition/RotX=0. deg
 sv:Ph/Default/Modules = 1 "g4em-standard_opt4"
 
 s:So/Example/BeamAngularDistribution  = "Flat"
-d:So/Example/BeamAngularCutoffY       = 0.05 deg
-d:So/Example/BeamAngularCutoffX       = 0.05 deg
-#d:So/Example/BeamAngularCutoffY       = 2.145 deg
-#d:So/Example/BeamAngularCutoffX       = 2.145 deg
-i:So/Example/NumberOfHistoriesInRun   = 1000000
+#d:So/Example/BeamAngularCutoffY       = 0.05 deg
+#d:So/Example/BeamAngularCutoffX       = 0.05 deg
+d:So/Example/BeamAngularCutoffY       = 2.145 deg
+d:So/Example/BeamAngularCutoffX       = 2.145 deg
+i:So/Example/NumberOfHistoriesInRun   = 1000
 
 
 
